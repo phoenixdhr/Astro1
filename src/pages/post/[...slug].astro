@@ -1,0 +1,30 @@
+---
+import { getCollection } from "astro:content";
+import Base from "../../layout/Base.astro";
+
+export const getStaticPaths = (async () => {
+    const posts = await getCollection("tipss");
+    const paths = posts.map((postMd) => ({
+        params: { slug: postMd.slug },
+        props: { postMd },
+    }));
+
+    console.log("paths =>", paths);
+
+    return paths;
+}) ;
+
+const {slug} = Astro.params;
+const {postMd}  = Astro.props;
+
+const { Content } = await postMd.render();
+console.log("Content=> funcon start", Content);
+// console.log("conetenido title =>", Content.title);
+
+
+---
+
+<Base >
+    <Content/>
+    <!-- <Post title={postMd.data.title} pudDate={postMd.data.pudDate} desciption={postMd.data.desciption} tags={postMd.data.tags} image={postMd.data.image} body={postMd.body} postMd={postMd}/> -->
+</Base>

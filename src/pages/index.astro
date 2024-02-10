@@ -1,0 +1,54 @@
+---
+import AccessBanner from "../components/AccessBanner.astro";
+import Card2 from "../components/Card.astro";
+import FeatureList from "../components/FeatureList.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import Hero from "../components/Hero.astro";
+import HeroSection from "../components/HeroSection.astro";
+import Navbar from "../components/Navbar.astro";
+import Sidebar from "../components/Sidebar.astro";
+
+const metadatos_content = await Astro.glob("../content/tipss/*.md");
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Astro</title>
+	</head>
+	<body>
+		<Navbar />
+		<!-- <Sidebar> </Sidebar> -->
+		<HeroSection />
+		<FeatureList />
+		<AccessBanner />
+
+		<div class="max-w-4xl mx-auto p-5 bg-white shadow-lg rounded-lg">
+			<h1 class="text-3xl font-bold text-center">
+				Bienvenido a Astro con Tailwind CSS
+			</h1>
+			<p class="mt-4">
+				Esta es una página de ejemplo que muestra cómo usar Tailwind CSS
+				en Astro para establecer los márgenes de la página.
+			</p>
+
+			<Header title={"AstroBuild Tips"} />
+			<!-- <Hero />	 -->
+			{
+				metadatos_content.map((item) => (
+					<Card2
+						title={item.frontmatter?.title}
+						time={item.frontmatter?.pudDate}
+						tags={item.frontmatter?.tags}
+					/>
+				))
+			}
+			<h1>Astro</h1>
+		</div>
+		<Footer />
+	</body>
+</html>

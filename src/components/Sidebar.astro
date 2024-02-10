@@ -1,0 +1,27 @@
+---
+// Sidebar.astro
+// No se necesita importar useState de React aquí ya que el sidebar es estático
+---
+
+<aside class="h-screen sticky top-0 bg-blue-800 w-64">
+    <div class="overflow-y-auto py-4 px-3">
+      <ul class="space-y-2">
+        <li>
+          <a href="#" class="flex items-center p-2 text-base font-normal text-white hover:bg-blue-700 rounded-lg">
+            {/* Icono de casa o inicio */}
+            <svg class="w-6 h-6" aria-hidden="true" ></svg> /* SVG path aquí */
+            <span class="ml-3">Inicio</span>
+          </a>
+        </li>
+        {/* Más elementos del menú aquí */}
+        <li>
+          <a href="#" class="flex items-center p-2 text-base font-normal text-white hover:bg-blue-700 rounded-lg">
+            {/* Icono de cursos */}
+            <svg class="w-6 h-6" aria-hidden="true"></svg>  /* SVG path aquí */
+            <span class="ml-3">Cursos</span>
+          </a>
+        </li>
+        {/* Repite para otros enlaces como Nanos, Ranking, Trivias, etc. */}
+      </ul>
+    </div>
+  </aside>
