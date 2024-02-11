@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import Base from "../../layout/Base.astro";
 import Header from "../../components/Header";
+import FooterUp from "../../components/FooterUp";
 import Footer from "../../components/Footer.vue";
 import Social from "../../components/Social.svelte";
 
@@ -26,6 +27,7 @@ console.log("Content=> funcon start", Content);
 ---
 
 <Base>
+    <FooterUp client:load/>
     <Header title="Astro Tips" />
     <Content />
     <!-- <Post title={postMd.data.title} pudDate={postMd.data.pudDate} desciption={postMd.data.desciption} tags={postMd.data.tags} image={postMd.data.image} body={postMd.body} postMd={postMd}/> -->
