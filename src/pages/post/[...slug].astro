@@ -13,20 +13,20 @@ export const getStaticPaths = async () => {
         props: { postMd },
     }));
 
-    console.log("paths =>", paths);
+    // console.log("paths =>", paths);
 
     return paths;
 };
 
-const { slug } = Astro.params;
+// const { slug } = Astro.params;
 const { postMd } = Astro.props;
 
 const { Content } = await postMd.render();
-console.log("Content=> funcon start", Content);
-// console.log("conetenido title =>", Content.title);
+// console.log("Content=> funcon start", postMd);
+
 ---
 
-<Base>
+<Base title={postMd.data.title} description={postMd.data.description}>
     <HeaderUp client:load/>
     <Header title="Astro Tips" />
     <Content />

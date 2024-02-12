@@ -3,7 +3,7 @@ title: Helow javascript
 pudDate: 09/02/2024
 tags: ["astro","javascript"]
 
-desciption: Hello this is my first recommendation
+description: Hello this is my first recommendation
 image:
 layout: "../../layout/Post.astro"
 ---

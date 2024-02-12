@@ -1,25 +1,30 @@
 ---
+import BaseHead from '../components/BaseHead.astro';
+
 interface Props {
-    title?: string;
-    frontmatter?: Frontmatter;
+    title: string;
+    description: string;
 }
 
-interface Frontmatter {
-    date: string;
-    numero1: number;
-    numero2: number;
-}
+// interface Frontmatter {
+//     date: string;
+//     numero1: number;
+//     numero2: number;
+// }
 
-const { title, frontmatter } = Astro.props;
+const { title, description } = Astro.props;
+// console.log("frontmatter title", description);
+
 ---
 
 <!doctype html>
 <html lang="en">
-    <head>
+    <!-- <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>{title}</title>
-    </head>
+    </head> -->
+    <BaseHead title={title} description={description} />
     <body class="h-screen">
         <!-- <div class="flex-block max-w-xl p-4 md:pd-8 mx-auto mt-4">
             <div class="bg—white shadow rounded—lg p-4"> -->

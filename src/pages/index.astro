@@ -1,15 +1,17 @@
 ---
 import AccessBanner from "../components/AccessBanner.astro";
-import Card2 from "../components/Card.astro";
+import Card from "../components/Card.astro";
 import FeatureList from "../components/FeatureList.astro";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
-import Hero from "../components/Hero.astro";
+
 import HeroSection from "../components/HeroSection.astro";
 import Navbar from "../components/Navbar.astro";
-import Sidebar from "../components/Sidebar.astro";
+
 
 const metadatos_content = await Astro.glob("../content/tipss/*.md");
+console.log("metadatos_content   ", metadatos_content[0].frontmatter);
+
 ---
 
 <html lang="en">
@@ -40,10 +42,12 @@ const metadatos_content = await Astro.glob("../content/tipss/*.md");
 			<!-- <Hero />	 -->
 			{
 				metadatos_content.map((item) => (
-					<Card2
+					<Card
 						title={item.frontmatter?.title}
 						time={item.frontmatter?.pudDate}
 						tags={item.frontmatter?.tags}
+						slug={item.frontmatter?.slug}
+
 					/>
 				))
 			}
